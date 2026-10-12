@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Live dashboard</p>
+                <h1>COVID-19 Tracker</h1>
+            </div>
+            <div class="search-group">
+                <label for="countrySelect">Country</label>
+                <select id="countrySelect"></select>
+            </div>
+        </header>
+
+        <main>
+            <section class="stats-grid">
+                <article class="stat-card total">
+                    <p>Total Cases</p>
+                    <h2 id="totalCases">--</h2>
+                </article>
+                <article class="stat-card active">
+                    <p>Active Cases</p>
+                    <h2 id="activeCases">--</h2>
+                </article>
+                <article class="stat-card recovered">
+                    <p>Recovered</p>
+                    <h2 id="recoveredCases">--</h2>
+                </article>
+                <article class="stat-card deaths">
+                    <p>Deaths</p>
+                    <h2 id="deathCases">--</h2>
+                </article>
+            </section>
+
+            <section class="content-grid">
+                <div class="panel chart-panel">
+                    <div class="panel-heading">
+                        <h3>Trend</h3>
+                    </div>
+                    <canvas id="covidChart" height="120"></canvas>
+                </div>
+
+                <div class="panel table-panel">
+                    <div class="panel-heading">
+                        <h3>Country Breakdown</h3>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Cases</th>
+                                    <th>Recovered</th>
+                                    <th>Deaths</th>
+                                </tr>
+                            </thead>
+                            <tbody id="countryTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
